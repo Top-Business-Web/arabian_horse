@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('images');
+            $table->json('images');
             $table->string('title');
             $table->longText('desc');
             $table->timestamps();

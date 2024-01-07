@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
+
+    protected $table = 'settings';
+
+    protected $fillable = [
+        'logo',
+        'email',
+        'phone',
+        'address',
+        'desc_about',
+        'link_youtube',
+        'image',
+        'instagram',
+        'linkedin',
+        'twitter',
+        'facebook',
+    ];
 }
