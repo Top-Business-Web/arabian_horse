@@ -19,7 +19,7 @@ class InboxResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-inbox';
 
-    protected static ?string $navigationLabel = ('inbox.inbox_label');
+    protected static ?string $navigationLabel = 'Inboxes';
 
     public static function form(Form $form): Form
     {
