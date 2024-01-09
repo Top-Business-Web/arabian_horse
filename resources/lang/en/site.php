@@ -19,4 +19,5 @@ return [
     'message' => 'Message',
     'all_rights_are_save' => 'All Rights are save',
     'start_watching_now' => 'Start watching now',
+    'arabian_horse' => 'Arabian Horse',
 ];
