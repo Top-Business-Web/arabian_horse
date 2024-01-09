@@ -26,11 +26,16 @@ class SliderResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('name_ar')
                     ->required()
-                    ->maxLength(255)
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('name_en')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('description_ar')
+                    ->required()
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('description')
+                Forms\Components\Textarea::make('description_en')
                     ->required()
                     ->columnSpanFull(),
             ]);

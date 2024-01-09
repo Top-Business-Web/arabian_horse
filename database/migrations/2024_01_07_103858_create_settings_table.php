@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->string('email');
             $table->string('phone');
-            $table->longText('address');
-            $table->longText('desc_about');
+            $table->longText('address_ar');
+            $table->longText('address_en');
+            $table->longText('desc_about_ar');
+            $table->longText('desc_about_en');
             $table->string('link_youtube');
             $table->string('image');
             $table->string('instagram');

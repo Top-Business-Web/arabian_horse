@@ -27,17 +27,21 @@ class InboxResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled(),
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled(),
                 Forms\Components\TextInput::make('subject')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('message')
+                    ->maxLength(255)
+                    ->disabled(),
+                Forms\Components\Textarea::make('message')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled(),
             ]);
     }
 

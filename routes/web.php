@@ -24,5 +24,7 @@ Route::group(
     function () {
         Route::get('/', [HomeController::class, 'index'])->name('index');
         Route::get('/product_details/{id}', [HomeController::class, 'product'])->name('product');
+
+        Route::post('/sendMessage', [HomeController::class, 'sendMessage'])->name('sendMessage');
     }
 );

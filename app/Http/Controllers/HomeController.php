@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\{
+    Inbox,
     Slider,
     Partner,
     Product,
@@ -25,23 +26,48 @@ class HomeController extends Controller
     {
         $sliders = $this->getSlider();
         $settings = $this->getSetting();
-        $product = Product::select('id', 'images', 'title', 'desc')->find($id);
+        $product = Product::select('id', 'images', 'title_ar', 'title_en', 'desc_ar', 'desc_en')->find($id);
         return view('site.product_details', compact('sliders', 'settings', 'product'));
+    }
+
+    public function sendMessage(Request $request)
+    {
+        try {
+            $name = $request->input('name');
+            $email = $request->input('email');
+            $subject = $request->input('subject');
+            $message = $request->input('message');
+
+            
+            $inbox = new Inbox();
+
+            
+            $inbox->name = $name;
+            $inbox->email = $email;
+            $inbox->subject = $subject;
+            $inbox->message = $message;
+
+            $inbox->save();
+            flash()->addSuccess('تم ارسال  طلبك بنجاح انتظر للرد');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error saving the message'], 500);
+        }
     }
 
     private function getSlider()
     {
-        return Slider::query()->select('image', 'name', 'description')->get();
+        return Slider::query()->select('image', 'name_ar', 'name_en', 'description_ar', 'description_en')->get();
     }
 
     private function getSetting()
     {
-        return Setting::query()->select('logo', 'email', 'phone', 'address', 'link_youtube', 'instagram', 'linkedin', 'twitter', 'facebook', 'desc_about', 'image')->first();
+        return Setting::query()->select('logo', 'email', 'phone', 'address_ar', 'address_en', 'link_youtube', 'instagram', 'linkedin', 'twitter', 'facebook', 'desc_about_ar', 'desc_about_en', 'image')->first();
     }
 
     private function getProduct()
     {
-        return Product::query()->select('id', 'images', 'title', 'desc')->get();
+        return Product::query()->select('id', 'images', 'title_ar', 'title_en', 'desc_ar', 'desc_en')->get();
     }
 
     private function getPartner()

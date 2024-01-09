@@ -5,9 +5,9 @@
                 <div class="carousel-item @if($key === 0) active @endif">
                     <img src="{{ asset('storage/' . $slider->image) }}" class="d-block w-100" alt="no image">
                     <div class="carousel-caption d-md-block">
-                        <h1 class="heading-one fw-bold mb-4">{{ $slider->name }}</h1>
+                        <h1 class="heading-one fw-bold mb-4">{{ app()->getLocale() == 'ar' ? $slider->name_ar : $slider->name_en }}</h1>
                         <p class="paragraph-one text-center lh-lg">
-                            {{ $slider->description }}
+                            {{ app()->getLocale() == 'ar' ? $slider->description_ar : $slider->description_en }}
                         </p>
                     </div>
                 </div>

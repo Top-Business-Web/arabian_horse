@@ -12,7 +12,7 @@
               </div>
               <div>
                 <h4 class="fw-bold mt-3">{{ trans('site.address') }}</h4>
-                <p class="text-end">{{ $settings->address }}</p>
+                <p class="text-end">{{ app()->getLocale() == 'ar' ? $settings->address_ar : $settings->address_en }}</p>
               </div>
              </div>
              <div class="card-contact d-flex align-items-center  mt-5">
@@ -39,18 +39,19 @@
              </div>
             </div>
             <div class="col-lg-7 col-12">
-              <form class="row form-contact">
+              <form class="row form-contact" action="{{ route('sendMessage') }}" method="post">
+                @csrf
                 <div class="col-md-6 col-sm-12 mb-4">
-                  <input type="text" class="w-100 edit-input" placeholder="{{ trans('site.name') }}" required>
+                  <input type="text" class="w-100 edit-input" name="name" placeholder="{{ trans('site.name') }}" required>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-4">
-                  <input type="email" class="w-100 edit-input" placeholder="{{ trans('site.email') }}" required>
+                  <input type="email" class="w-100 edit-input" name="email" placeholder="{{ trans('site.email') }}" required>
                 </div>
                   <div class="col-12 mb-4">
-                    <input type="email" class="w-100 edit-input" placeholder="{{ trans('site.subject') }}" required>
+                    <input type="text" class="w-100 edit-input" name="subject" placeholder="{{ trans('site.subject') }}" required>
                   </div>
                 <div class="col-12">
-                  <textarea class="w-100 edit-input" placeholder="{{ trans('site.message') }}" required></textarea>
+                  <textarea class="w-100 edit-input" name="message" placeholder="{{ trans('site.message') }}" required></textarea>
                 </div>
                 <div class="col-12 mt-5">
                     <button type="submit" class="btn">
