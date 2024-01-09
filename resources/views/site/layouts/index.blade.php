@@ -20,7 +20,7 @@
                             <h1 class="color-black fw-bold">{{ trans('site.what_do_you_know_about_us') }}</h1>
                         </div>
                         <p class="lh-lg">
-                            {{ $settings->desc_about }}
+                            {{ app()->getLocale() == 'ar' ? $settings->desc_about_ar : $settings->desc_about_en }}
                         </p>
                         <div class="video-content d-flex flex-wrap">
                             <div class="d-flex">
@@ -61,10 +61,10 @@
                         </div>
                         <div class="card-content p-3">
                             <a href="{{ route('product', $product->id) }}" class="text-decoration-none">
-                                <h3 class="fw-bold color-black mt-2">{{ $product->title }}</h3>
+                                <h3 class="fw-bold color-black mt-2">{{ app()->getLocale() == 'ar' ? $product->title_ar : $product->title_en }}</h3>
                             </a>
                             <p class="lh-lg color-text mt-3 mb-4">
-                                {{ $product->desc }}
+                                {{ app()->getLocale() == 'ar' ? $product->desc_ar : $product->desc_en }}
                             </p>
                         </div>
                     </div>

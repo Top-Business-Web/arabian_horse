@@ -21,8 +21,8 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     <div>
-                        <h3 class="fw-bold mb-4 mt-3 color-second">{{ $product->title }}</h3>
-                        <p class="lh-lg">{{ $product->desc }}</p>
+                        <h3 class="fw-bold mb-4 mt-3 color-second">{{ app()->getLocale() == 'ar' ? $product->title_ar : $product->title_en }}</h3>
+                        <p class="lh-lg">{{ app()->getLocale() == 'ar' ? $product->desc_ar : $product->desc_en }}</p>
                     </div>
                 </div>
             </div>

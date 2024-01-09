@@ -41,12 +41,14 @@ class SettingResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('address')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('desc_about')
-                    ->required()
-                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('address_ar')
+                    ->required(),
+                Forms\Components\Textarea::make('address_en')
+                    ->required(),
+                Forms\Components\Textarea::make('desc_about_ar')
+                    ->required(),
+                Forms\Components\Textarea::make('desc_about_en')
+                    ->required(),
                 Forms\Components\TextInput::make('instagram')
                     ->required()
                     ->maxLength(255),

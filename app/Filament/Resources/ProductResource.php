@@ -25,11 +25,18 @@ class ProductResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('images')
                 ->image()
-                ->multiple(),
-                Forms\Components\TextInput::make('title')
+                ->multiple()
+                ->columnSpanFull(),
+                Forms\Components\TextInput::make('title_ar')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('desc')
+                Forms\Components\TextInput::make('title_en')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('desc_ar')
+                    ->required()
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('desc_en')
                     ->required()
                     ->columnSpanFull(),
             ]);
