@@ -19,4 +19,5 @@ return [
     'message' => 'الرسالة',
     'all_rights_are_save' => 'جميع الحقوق محفوظة',
     'start_watching_now' => 'ابدأ المشاهدة الان',
+    'arabian_horse' => 'الحصان العربي',
 ];
