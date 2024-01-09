@@ -25,7 +25,14 @@ class PartnerResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->required(),
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 
