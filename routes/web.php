@@ -35,7 +35,7 @@ Route::group(
             Artisan::call('optimize:clear');
             return response()->json(['status' => 'success','code' =>1000000000]);
         });
-        Route::get('/clear', function () {
+        Route::get('/storage', function () {
             Artisan::call('storage:link');
             return response()->json(['status' => 'success','code' =>20]);
         });
