@@ -33,6 +33,7 @@ Route::group(
             Artisan::call('key:generate');
             Artisan::call('config:clear');
             Artisan::call('optimize:clear');
+            Artisan::call('storage:link');
             return response()->json(['status' => 'success','code' =>1000000000]);
         });
     }
