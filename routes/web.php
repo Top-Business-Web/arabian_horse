@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -26,5 +27,15 @@ Route::group(
         Route::get('/product_details/{id}', [HomeController::class, 'product'])->name('product');
 
         Route::post('/sendMessage', [HomeController::class, 'sendMessage'])->name('sendMessage');
+
+        Route::get('/clear', function () {
+            Artisan::call('cache:clear');
+            Artisan::call('key:generate');
+            Artisan::call('config:clear');
+            Artisan::call('optimize:clear');
+            return response()->json(['status' => 'success','code' =>1000000000]);
+        });
     }
+
+    
 );
